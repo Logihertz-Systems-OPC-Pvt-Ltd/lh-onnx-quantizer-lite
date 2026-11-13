@@ -156,7 +156,7 @@ class CalibrationEngine:
                 optimal_bin = i
 
         optimal_threshold = (optimal_bin + 0.5) * bin_width
-        return float(optimal_threshold), float(min_kl)
+        return float(optimal_threshold), max(0.0, float(min_kl))
 
     @classmethod
     def calibrate(
