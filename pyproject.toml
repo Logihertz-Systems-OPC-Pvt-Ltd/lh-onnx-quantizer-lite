@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lh-onnx-quantizer-lite"
+version = "0.1.0"
+description = "Production-grade, zero-dependency Python 3.11+ Edge Vision INT4/INT8 ONNX Model Quantizer, KL-Divergence Entropy Calibrator, Conv-BatchNorm Folder, and 10-Rule Edge Robotics Quantization Posture Auditor"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Sameer Tawade", email = "ops@logihertz.com" }
+]
+maintainers = [
+    { name = "Logihertz Systems (OPC) Private Limited", email = "ops@logihertz.com" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security",
+    "Topic :: System :: Hardware"
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
+Homepage = "https://logihertz.com/"
+Repository = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-onnx-quantizer-lite"
+Issues = "https://github.com/Logihertz-Systems-OPC-Pvt-Ltd/lh-onnx-quantizer-lite/issues"
+
+[project.scripts]
+lh-onnx-quant = "lh_onnx_quantizer_lite.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

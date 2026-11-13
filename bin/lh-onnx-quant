@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# ==============================================================================
+# Product:       Logihertz ONNX Quantizer Lite (lh-onnx-quantizer-lite)
+# Module:        bin/lh-onnx-quant
+# Role:          Standalone Executable CLI Wrapper
+# Organization:  Logihertz Systems (OPC) Private Limited
+# Developer:     Sameer Tawade (Creator, Founder, Director & Sole Developer)
+# Contact:       ops@logihertz.com / security@logihertz.com
+# License:       Apache-2.0
+# ==============================================================================
+
+import os
+import sys
+
+# Prepend src directory to module search path for local development
+repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+src_dir = os.path.join(repo_root, "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
+from lh_onnx_quantizer_lite.cli import main
+
+if __name__ == "__main__":
+    sys.exit(main())

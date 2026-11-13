@@ -1,0 +1,23 @@
+{
+  "model_name": "Insecure-Legacy-VisionModel",
+  "version": "0.1",
+  "organization": "Untrusted External Entity",
+  "allow_custom_op_libraries": true,
+  "external_data_allow_outside_root": true,
+  "verify_model_sha256": false,
+  "verify_calibration_dataset_hash": false,
+  "sqnr_db": 14.2,
+  "map_drop_pct": 8.5,
+  "conv_per_channel_quantization": false,
+  "calibration_samples": 30,
+  "calibration_method": "invalid_custom",
+  "preserve_fp16_detection_head": false,
+  "dynamic_axes_bounded": false,
+  "max_batch_size": 128,
+  "max_workspace_mb": 4096,
+  "fold_conv_batchnorm": false,
+  "opset_version": 11,
+  "saturate_int8_clipping": false,
+  "check_nan_inf_weights": false,
+  "clear_calibration_cache_on_exit": false
+}

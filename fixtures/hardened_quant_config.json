@@ -1,0 +1,23 @@
+{
+  "model_name": "Logihertz-YOLOv8-EdgeVision",
+  "version": "1.0",
+  "organization": "Logihertz Systems (OPC) Private Limited",
+  "allow_custom_op_libraries": false,
+  "external_data_allow_outside_root": false,
+  "verify_model_sha256": true,
+  "verify_calibration_dataset_hash": true,
+  "sqnr_db": 38.5,
+  "map_drop_pct": 0.8,
+  "conv_per_channel_quantization": true,
+  "calibration_samples": 500,
+  "calibration_method": "kl_entropy",
+  "preserve_fp16_detection_head": true,
+  "dynamic_axes_bounded": true,
+  "max_batch_size": 16,
+  "max_workspace_mb": 512,
+  "fold_conv_batchnorm": true,
+  "opset_version": 17,
+  "saturate_int8_clipping": true,
+  "check_nan_inf_weights": true,
+  "clear_calibration_cache_on_exit": true
+}

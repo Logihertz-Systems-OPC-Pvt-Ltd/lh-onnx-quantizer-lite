@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Syntax Compilation Check
+        run: |
+          python3 -m py_compile src/lh_onnx_quantizer_lite/*.py tests/*.py
+
+      - name: Run Test Suite (85+ Deterministic Assertions)
+        run: |
+          PYTHONPATH=src python3 -m unittest discover -s tests -v
+
+      - name: Verify CLI Executable & Subcommands
+        run: |
+          ./bin/lh-onnx-quant --version
+          ./bin/lh-onnx-quant --help
+          ./bin/lh-onnx-quant scan fixtures/hardened_quant_config.json --format table
+          ./bin/lh-onnx-quant scan fixtures/hardened_quant_config.json --format json
+          ./bin/lh-onnx-quant scan fixtures/hardened_quant_config.json --format sarif
+          ./bin/lh-onnx-quant quantize fixtures/sample_vision_graph.json --bits 8
+          ./bin/lh-onnx-quant quantize fixtures/sample_vision_graph.json --bits 4 --group-size 32
+          ./bin/lh-onnx-quant calibrate fixtures/sample_vision_graph.json --method kl_entropy
+          ./bin/lh-onnx-quant fold-bn fixtures/sample_vision_graph.json
