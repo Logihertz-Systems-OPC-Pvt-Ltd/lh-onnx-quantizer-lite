@@ -1,0 +1,9 @@
+Package: lh-onnx-quantizer-lite
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Sameer Tawade <ops@logihertz.com>
+Homepage: https://www.logihertz.com
+Description: lh-onnx-quant - Kullback-Leibler Divergence Entropy Minimization Calibration
+ Zero-dependency Edge Vision INT4/INT8 Post-Training Quantization (PTQ) engine with Kullback-Leibler (KL) divergence entropy calibration, analytical Conv2D+BatchNorm folding, QDQ synthesis, and SQNR posture auditor.
